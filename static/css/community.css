@@ -1,0 +1,409 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #388f61; /* Light green color that is soft but has some depth */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure the body covers the viewport height */
+}
+
+/* Header Styles */
+header {
+    background-color: #388f61;/* Dark green for contrast and consistency */
+    padding: 20px 0;
+    position: relative;
+    z-index: 1; /* Ensure header is above other content */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 150px; 
+    width: 200px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
+
+}
+
+nav ul li {
+    margin-left: 30px; 
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; 
+
+    font-size: 18px; 
+
+    font-weight: 600; 
+
+    font-family: 'Arial', sans-serif; 
+
+    position: relative;
+    padding-bottom: 8px; 
+
+    transition: color 0.3s ease, font-size 0.3s ease; 
+
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #a0db8e; 
+
+    transition: width 0.3s ease;
+    left: 0;
+    bottom: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #a0db8e; 
+
+    font-size: 20px; 
+
+}
+
+
+
+
+/* Upload Section Styles */
+.upload-section {
+    width: 400px; /* Increased width */
+    max-height: 80vh; /* Limit height to viewport height */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed; /* Fixed positioning */
+    top: 65%; /* Center vertically with a slight offset */
+    left: 5%; /* Position near the left edge */
+    transform: translateY(-50%); /* Center vertically */
+    overflow: auto; /* Allow scrolling if content overflows */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Title Style */
+.upload-title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #004d26;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form Styles */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Label Styles */
+.upload-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #004d26; /* Previous color */
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-label i {
+    margin-right: 8px;
+}
+
+.upload-label:hover {
+    background-color: #003b1e; /* Darker shade on hover */
+}
+
+/* Hidden File Input */
+.upload-form input[type="file"] {
+    display: none;
+}
+
+/* Textarea Styles */
+.upload-form textarea {
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Allow vertical resizing only */
+    background: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+}
+
+.upload-form textarea:focus {
+    border-color: #004d26;
+    box-shadow: 0 0 8px rgba(0, 150, 136, 0.5);
+}
+
+/* Button Styles */
+.upload-form button {
+    padding: 10px 20px;
+    background-color: #004d26; /* Previous color */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.upload-form button i {
+    margin-right: 8px;
+}
+
+.upload-form button:hover {
+    background-color: #003b1e; /* Darker shade on hover */
+}
+
+/* Image Preview Styles */
+#image-preview {
+    max-width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Container Styles */
+#image-container {
+    position: relative;
+}
+
+/* Remove Image Button Styles */
+#remove-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ff0000;
+    transition: background-color 0.3s ease;
+}
+
+#remove-image:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque on hover */
+}
+
+
+/* Right Section Styles */
+#right-section {
+    width: 60%; /* Adjust width as needed */
+    padding: 20px;
+    position: fixed;
+    top: 295px; /* Ensure it is below the header, adjust as needed */
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 80vh; /* Limit height to viewport height */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Ensure header is not affected by right-section */
+header {
+    position: relative; /* Ensure header is positioned correctly */
+    z-index: 999; /* Place header above other content */
+}
+
+/* Right Section Title */
+#right-section h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #004d26;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 2px solid #004d26;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Post Container Styles */
+#posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+/* Post Styles */
+.post {
+    width: calc(50% - 15px); /* Two posts per row with a gap */
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.post img {
+    width: 100%;
+    height: 200px; /* Adjust height of the image */
+    object-fit: cover; /* Ensure image covers the area */
+    display: block;
+}
+
+.post p {
+    padding: 10px;
+    font-size: 16px;
+    color: #333; /* Darker text color for contrast */
+    margin: 0;
+}
+
+.post-actions {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+.upvote-button,
+.delete-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.upvote-button {
+    background-color: #004d26;
+    color: #ffffff;
+}
+
+.delete-button {
+    background-color: #d32f2f;
+    color: #ffffff;
+}
+
+.upvote-button:hover {
+    background-color: #003b1e;
+    transform: scale(1.05);
+}
+
+.delete-button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* Comment Section Styles */
+.comments {
+    padding: 10px;
+    display: none; /* Hidden by default */
+    background-color: rgba(241, 241, 241, 0.8); /* Transparent light gray */
+    border-top: 1px solid #ddd;
+    max-height: 160px; /* Set a max-height for scrolling */
+    overflow-y: auto; /* Allow scrolling if content exceeds max-height */
+}
+
+.comment-form {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.comment-form input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.comment-form button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #004d26;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+    background-color: #003b1e;
+}
+
+#comments-list-{{ post.id }} {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#comments-list-{{ post.id }} li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #555; /* Darker color for comments */
+}
+
+/* Animations */
+.post:hover {
+    transform: scale(1.03);
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on hover */
+}
+
+/* Title Section Styles */
+.title-section {
+    width: 100%;
+    
+    padding: 20px;
+    background: linear-gradient(to right, #004d26, #388f61); /* Green gradient */
+    text-align: center;
+    color: #ffffff; /* White text for contrast */
+    position: relative;
+    z-index: 1000; /* Ensure it stays above other content */
+    margin-top: 0px; /* Adjust based on header height */
+}
+
+.title-section h1 {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}

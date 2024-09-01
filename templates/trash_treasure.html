@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash Treasure</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/trash_treasure.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+    <div class="container">
+        <!-- Logo Image -->
+        <div class="logo">
+            <img src="static/images/logo2.png" alt="Logo">
+        </div>
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
+                <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
+                <li><a href="#">VOICE YOUR ISSUES</a></li>
+                <li><a href="#">VOLUNTEER HUB</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Title Section -->
+<div class="title-section">
+    <h1>Upload , Collect and Earn $$</h1>
+</div>
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Left Upload Section -->
+            <div class="upload-section">
+                <h2>Upload Your Waste Images</h2>
+                <input type="file" id="imageUpload" multiple accept="image/*">
+                <div id="imagePreview"></div>
+                <div id="totalPoints">Total Points: 0</div>
+                <button id="submitButton">Submit</button>
+            </div>
+            
+    
+            <div class="right-section">
+                <!-- Points Sections -->
+                <div class="points-section">
+                    <div class="points-box">
+                        <h3>Pending Points</h3>
+                        <div id="pendingPoints">0</div>
+                    </div>
+                    <div class="points-box">
+                        <h3>Confirmed Points</h3>
+                        <div id="confirmedPoints">0</div>
+                    </div>
+                </div>
+            
+                <!-- Order History Section -->
+                <div class="order-history">
+                    <h3>Order History</h3>
+                    <div id="orderList"></div>
+                </div>
+
+
+                <!-- Rewards Section -->
+                <div class="rewards-section">
+                    <h3>Redeem Your Points</h3>
+                    <div class="rewards-box">
+                        <img src="{{ url_for('static', filename='images/paypal.jpg') }}" alt="Paytm" class="reward-image">
+                        <p>Redeem points for Paytm vouchers</p>
+                    </div>
+                    <div class="rewards-box">
+                        <img src="{{ url_for('static', filename='images/paytm.jpg') }}" alt="PayPal" class="reward-image">
+                        <p>Redeem points for PayPal cash</p>
+                    </div>
+                    <div class="rewards-box">
+                        <img src="{{ url_for('static', filename='images/upi.jpg') }}" alt="Bank" class="reward-image">
+                        <p>Redeem points for bank transfers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <!-- Popup Form -->
+    <div id="popupForm" class="popup-form">
+        <div class="popup-wrapper">
+            <div class="form-content">
+                <span class="close-btn">&times;</span>
+                <h3>Pickup Details</h3>
+                <form id="pickupForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+    
+                    <label for="pickupLocation">Pickup Location:</label>
+                    <input type="text" id="pickupLocation" name="pickupLocation" required>
+    
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+    
+                    <label for="points">Points:</label>
+                    <input type="text" id="points" name="points" readonly>
+    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{{ url_for('static', filename='js/trash_treasure.js') }}"></script>
+</body>
+</html>

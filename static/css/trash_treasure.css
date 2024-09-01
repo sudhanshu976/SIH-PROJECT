@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #388f61; /* Light green color that is soft but has some depth */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure the body covers the viewport height */
+}
+
+/* Header Styles */
+header {
+    background-color: #388f61;/* Dark green for contrast and consistency */
+    padding: 20px 0;
+    position: relative;
+    z-index: 1; /* Ensure header is above other content */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 150px; 
+    width: 200px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin-top: 70px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
+
+}
+
+nav ul li {
+    margin-left: 30px; 
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; 
+
+    font-size: 18px; 
+
+    font-weight: 600; 
+
+    font-family: 'Arial', sans-serif; 
+
+    position: relative;
+    padding-bottom: 8px; 
+
+    transition: color 0.3s ease, font-size 0.3s ease; 
+
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #a0db8e; 
+
+    transition: width 0.3s ease;
+    left: 0;
+    bottom: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #a0db8e; 
+
+    font-size: 20px; 
+
+}
+
+
+
+/* Main Content Styles */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Right Section Styles */
+.right-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #e8f5e9; /* Light green background for the entire right section */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Points Section Styles */
+.points-section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure responsiveness */
+    justify-content: space-between; /* Distribute space evenly */
+    padding: 20px;
+}
+
+.points-box {
+    flex: 1;
+    min-width: 250px; /* Ensure minimum width for responsiveness */
+    padding: 20px;
+    background: #ffffff; /* White background for points boxes */
+    border: 2px solid #2e8b57; /* Darker green border */
+    border-radius: 12px; /* Rounded corners */
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px; /* Margin for spacing between boxes */
+}
+
+.points-box:hover {
+    background-color: #e8f5e9; /* Lighter green background on hover */
+    transform: scale(1.03); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.points-box h3 {
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    color: #2e8b57; /* Dark green text */
+    font-size: 24px; /* Slightly larger font size */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-weight: 600; /* Bolder text */
+}
+
+#pendingPoints,
+#confirmedPoints {
+    font-size: 42px; /* Larger font size for emphasis */
+    color: #2e8b57; /* Dark green color for consistency */
+    font-weight: 700; /* Bolder text for prominence */
+    margin: 0; /* Remove default margin */
+}
+
+
+/* Order History Styles */
+.order-history {
+    flex: 1;
+    width: 95%;
+    max-height: 500px; /* Fixed height */
+    overflow-y: auto; /* Make it scrollable */
+    padding: 20px;
+    background: #ffffff; /* Clean white background */
+    border: 2px solid #2e8b57; /* Darker green border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    margin: 0 auto; /* Center align */
+    max-width: 800px; /* Optional: limit the maximum width */
+}
+
+.order-history h3 {
+    margin-top: 0;
+    color: #2e8b57;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif; /* Custom font */
+    font-weight: 600; /* Slightly bolder text */
+    letter-spacing: 1px; /* Slight letter spacing for emphasis */
+    border-bottom: 2px solid #2e8b57; /* Bottom border for section heading */
+    padding-bottom: 10px;
+}
+
+.order-item {
+    border-bottom: 1px solid #e0e0e0; /* Lighter gray border */
+    padding: 15px 0;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item:hover {
+    background-color: #f9f9f9; /* Light gray background on hover */
+    padding: 15px 10px; /* Slightly reduced padding on hover */
+}
+
+.order-item div {
+    margin-bottom: 10px; /* Increased spacing between details */
+    font-family: 'Roboto', sans-serif; /* Consistent custom font */
+    color: #333; /* Darker text color for readability */
+}
+
+.order-item .item-label {
+    font-weight: 600; /* Bold labels */
+    color: #2e8b57; /* Green color for labels */
+}
+
+.order-item .item-value {
+    color: #555; /* Lighter text color for values */
+}
+
+
+/* Rewards Section Styles */
+.rewards-section {
+    padding: 30px;
+    width: 80%;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff); /* Subtle gradient background */
+    border: 2px solid #2e8b57; /* Darker green border */
+    border-radius: 12px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    max-width: 800px; /* Optional: limit the maximum width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rewards-section h3 {
+    margin-bottom: 25px;
+    color: #2e8b57;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif; /* Custom font for a modern look */
+    font-weight: 600; /* Slightly bolder text */
+    letter-spacing: 1px; /* Slight letter spacing for emphasis */
+}
+
+.rewards-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #ffffff; /* Clean white background */
+    border: 2px solid #2e8b57; /* Darker green border */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.rewards-box:hover {
+    background-color: #e8f5e9; /* Lighter green background on hover */
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.rewards-box img {
+    max-width: 80px; /* Slightly larger image */
+    margin-right: 20px;
+    border-radius: 50%; /* Rounded corners for images */
+}
+
+.rewards-box p {
+    margin: 0;
+    font-size: 20px;
+    color: #2e8b57;
+    font-family: 'Roboto', sans-serif; /* Consistent custom font */
+    font-weight: 400; /* Regular font weight */
+}
+
+/* Title Section Styles */
+.title-section {
+    width: 100%;
+    
+    padding: 20px;
+    background: linear-gradient(to right, #004d26, #388f61); /* Green gradient */
+    text-align: center;
+    color: #ffffff; /* White text for contrast */
+    position: relative;
+    z-index: 1000; /* Ensure it stays above other content */
+    margin-top: 0px; /* Adjust based on header height */
+}
+
+.title-section h1 {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles for Upload Section */
+.upload-section {
+    background-color: #f0f8f0; /* Light green background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    top: 200px;
+    margin: 30px ;
+    text-align: center;
+}
+
+/* Header Styling */
+.upload-section h2 {
+    color: #2e8b57; /* Forest green color */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* File Input Styling */
+#imageUpload {
+    margin: 20px -10px;
+    padding: 10px;
+    border: 2px solid #2e8b57;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#imageUpload:hover {
+    background-color: #e8f5e9; /* Light green on hover */
+    border-color: #1b5e20; /* Darker green on hover */
+}
+
+/* Image Preview Styling */
+#imagePreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#imagePreview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid #2e8b57;
+}
+
+/* Total Points Styling */
+#totalPoints {
+    font-size: 18px;
+    color: #2e8b57;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+#submitButton {
+    background-color: #2e8b57;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitButton:hover {
+    background-color: #1b5e20;
+}
+
+/* Popup Form Styles */
+.popup-form {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Ensure it's above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.popup-wrapper {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    height: 100%; /* Full height to cover the parent */
+    width: 100%; /* Full width to cover the parent */
+}
+
+.form-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border: 1px solid #ddd; /* Light border for definition */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for appearance */
+}
+
+.popup-form.show .form-content {
+    transform: scale(1.05); /* Slightly enlarge the form on display */
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333; /* Darker color for better contrast */
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #000; /* Change color on hover for better interaction */
+}
+
+input, button {
+    display: block;
+    width: calc(100% - 20px); /* Adjust to account for padding */
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #004d26;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #005d36;
+    transform: translateY(-2px); /* Slight lift effect */
+}
