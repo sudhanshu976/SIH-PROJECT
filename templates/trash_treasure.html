@@ -7,6 +7,113 @@
     <title>Trash Treasure</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/trash_treasure.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch pending points
+            function fetchPendingPoints() {
+                fetch('/get_pending_points')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('pending-points').innerText = data.pending_points;
+                    })
+                    .catch(error => console.error('Error fetching pending points:', error));
+            }
+
+            // Fetch pending points on page load
+            fetchPendingPoints();
+        });
+        function calculateTotalPoints() {
+            var points = {
+                'biological': 10,
+                'plastic': 5,
+                'paper': 7,
+                'clothes': 8,
+                'electronics': 12
+            };
+            var totalPoints = 0;
+            var selects = document.querySelectorAll('.category-select');
+            selects.forEach(function(select) {
+                totalPoints += points[select.value] || 0;
+            });
+            document.getElementById('total-points').innerText = 'Total Points: ' + totalPoints;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.category-select').forEach(function(select) {
+                select.addEventListener('change', calculateTotalPoints);
+            });
+        });
+
+        function openModal() {
+            var totalPoints = document.getElementById('total-points').innerText.split(': ')[1];
+            document.getElementById('total-points-modal').value = totalPoints;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-content input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .modal-content button {
+            background-color: #2c6b57; /* Dark green */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .modal-content button:hover {
+            background-color: #1b4f40; /* Darker green */
+        }
+
+        .modal-content .close {
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
 <!-- Header Section -->
@@ -14,108 +121,107 @@
     <div class="container">
         <!-- Logo Image -->
         <div class="logo">
-            <img src="static/images/logo2.png" alt="Logo">
+            <img src="{{ url_for('static', filename='images/logo00.jpg') }}" alt="Logo">
         </div>
         <!-- Navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="{{ url_for('home') }}">HOME</a></li>
                 <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
-                <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
-                <li><a href="#">VOICE YOUR ISSUES</a></li>
-                <li><a href="#">VOLUNTEER HUB</a></li>
-                <li><a href="#">ABOUT US</a></li>
+                <li><a href="{{ url_for('upload_file') }}">TRASH TREASURE</a></li>
+                <li><a href="{{ url_for('voice') }}">VOICE YOUR ISSUES</a></li>
+                <li><a href="{{ url_for('volunteer') }}">VOLUNTEER HUB</a></li>
+                <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
             </ul>
         </nav>
     </div>
 </header>
 <!-- Title Section -->
 <div class="title-section">
-    <h1>Upload , Collect and Earn $$</h1>
+    <h1>Upload, Collect and Earn $$</h1>
 </div>
-    <!-- Main Content -->
-    <main>
-        <div class="container">
-            <!-- Left Upload Section -->
-            <div class="upload-section">
-                <h2>Upload Your Waste Images</h2>
-                <input type="file" id="imageUpload" multiple accept="image/*">
-                <div id="imagePreview"></div>
-                <div id="totalPoints">Total Points: 0</div>
-                <button id="submitButton">Submit</button>
-            </div>
-            
-    
-            <div class="right-section">
-                <!-- Points Sections -->
-                <div class="points-section">
-                    <div class="points-box">
-                        <h3>Pending Points</h3>
-                        <div id="pendingPoints">0</div>
-                    </div>
-                    <div class="points-box">
-                        <h3>Confirmed Points</h3>
-                        <div id="confirmedPoints">0</div>
-                    </div>
-                </div>
-            
-                <!-- Order History Section -->
-                <div class="order-history">
-                    <h3>Order History</h3>
-                    <div id="orderList"></div>
-                </div>
 
+<!-- Split Page into Two Halves -->
+<div class="main-container">
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <h2>Upload Image</h2>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
 
-                <!-- Rewards Section -->
-                <div class="rewards-section">
-                    <h3>Redeem Your Points</h3>
-                    <div class="rewards-box">
-                        <img src="{{ url_for('static', filename='images/paypal.jpg') }}" alt="Paytm" class="reward-image">
-                        <p>Redeem points for Paytm vouchers</p>
-                    </div>
-                    <div class="rewards-box">
-                        <img src="{{ url_for('static', filename='images/paytm.jpg') }}" alt="PayPal" class="reward-image">
-                        <p>Redeem points for PayPal cash</p>
-                    </div>
-                    <div class="rewards-box">
-                        <img src="{{ url_for('static', filename='images/upi.jpg') }}" alt="Bank" class="reward-image">
-                        <p>Redeem points for bank transfers</p>
-                    </div>
+        <!-- Mask Images Section -->
+        <div class="mask-images-section">
+            <h2>Mask Segments</h2>
+            <form action="#" method="post" onsubmit="openModal(); return false;">
+                <div class="mask-images">
+                    {% if mask_paths %}
+                        {% for mask_path in mask_paths %}
+                            <div class="mask-item">
+                                <img src="{{ mask_path }}" alt="Mask Image" class="mask-image">
+                                <select name="categories" class="category-select">
+                                    <option value="">Select Category</option>
+                                    <option value="biological">Biological</option>
+                                    <option value="plastic">Plastic</option>
+                                    <option value="paper">Paper</option>
+                                    <option value="clothes">Clothes</option>
+                                    <option value="electronics">Electronics</option>
+                                </select>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No masks available. Upload an image to see the results.</p>
+                    {% endif %}
                 </div>
-            </div>
-        </div>
-    </main>
-    
-
-    <!-- Popup Form -->
-    <div id="popupForm" class="popup-form">
-        <div class="popup-wrapper">
-            <div class="form-content">
-                <span class="close-btn">&times;</span>
-                <h3>Pickup Details</h3>
-                <form id="pickupForm">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-    
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required>
-    
-                    <label for="pickupLocation">Pickup Location:</label>
-                    <input type="text" id="pickupLocation" name="pickupLocation" required>
-    
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
-    
-                    <label for="points">Points:</label>
-                    <input type="text" id="points" name="points" readonly>
-    
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+                <div id="total-points">Total Points: 0</div>
+                <button type="button" onclick="openModal()">Submit</button>
+            </form>
         </div>
     </div>
-    
+    <div class="right-section">
+        <h2>Points Overview</h2>
+        <div class="points-box">
+            <h3>Pending Points</h3>
+            <p id="pending-points">0</p>
+        </div>
+        <div class="points-box">
+            <h3>Confirmed Points</h3>
+            <p id="confirmed-points">0</p>
+        </div>
 
-    <script src="{{ url_for('static', filename='js/trash_treasure.js') }}"></script>
+        <!-- Redeem Section -->
+        <div class="redeem-section">
+            <h2>Redeem Points</h2>
+            <form action="#" method="post">
+                <label>
+                    <input type="radio" name="redeem_method" value="paytm" required> Paytm
+                </label>
+                <label>
+                    <input type="radio" name="redeem_method" value="paypal"> PayPal
+                </label>
+                <label>
+                    <input type="radio" name="redeem_method" value="bank_transfer"> Bank Transfer
+                </label>
+                <button type="submit">Redeem</button>
+            </form>
+        </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close" onclick="closeModal()">×</button>
+        <h2>Submit Your Details</h2>
+        <form action="{{ url_for('submit_details') }}" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="pickup_location" placeholder="Pickup Location" required>
+            <input type="text" id="total-points-modal" name="total_points" placeholder="Total Points" readonly>
+            <button type="submit">Submit Details</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

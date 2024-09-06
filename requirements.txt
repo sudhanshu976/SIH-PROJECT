@@ -5,3 +5,6 @@ scikit-learn
 tensorflow==2.16.1
 keras==3.3.3
 Pillow
+torch 
+torchvision
+opencv-python

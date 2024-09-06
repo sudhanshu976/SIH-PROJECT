@@ -50,8 +50,10 @@ header {
 /*Logo and Menu */
 
 .logo img {
-    height: 200px; 
+    height: 220px; 
     width: 280px;
+    padding: 0%;
+    margin: 0%;
 }
 
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmation.css') }}">
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Thank You!</h1>
+        <p>Your details have been successfully submitted.</p>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+        <p><strong>Pickup Location:</strong> {{ pickup_location }}</p>
+        <p><strong>Total Points:</strong> {{ total_points }}</p>
+    </div>
+</body>
+</html>

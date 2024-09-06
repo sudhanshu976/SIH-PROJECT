@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.confirmation-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.confirmation-container h1 {
+    color: #388f61;
+    margin-bottom: 20px;
+}
+
+.confirmation-container p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.confirmation-container strong {
+    color: #2c6b57;
+}

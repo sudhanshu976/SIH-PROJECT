@@ -18,7 +18,7 @@
         <div class="container">
             <!-- Logo Image -->
             <div class="logo">
-                <img src="static/images/logo2.png" alt="Logo">
+                <img src="static/images/logo00.jpg" alt="Logo">
             </div>
             <!-- Navigation -->
             <nav>
@@ -26,9 +26,9 @@
                     <li><a href="{{ url_for('home') }}">HOME</a></li>
                     <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
                     <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
-                    <li><a href="#">VOICE YOUR ISSUES</a></li>
-                    <li><a href="#">VOLUNTEER HUB</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="{{ url_for('voice') }}">VOICE YOUR ISSUES</a></li>
+                    <li><a href="{{ url_for('volunteer') }}">VOLUNTEER HUB</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
                 </ul>
             </nav>
         </div>

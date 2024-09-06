@@ -149,7 +149,7 @@
         <div class="container">
             <!-- Logo Image -->
             <div class="logo">
-                <img src="static/images/logo4.jpg" alt="Logo">
+                <img src="static/images/logo6.png" alt="Logo">
             </div>
             <!-- Navigation -->
             <nav>
@@ -157,9 +157,9 @@
                     <li><a href="{{ url_for('home') }}">HOME</a></li>
                     <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
                     <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
-                    <li><a href="#">VOICE YOUR ISSUES</a></li>
-                    <li><a href="#">VOLUNTEER HUB</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="{{ url_for('voice') }}">VOICE YOUR ISSUES</a></li>
+                    <li><a href="{{ url_for('volunteer') }}">VOLUNTEER HUB</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
                 </ul>
             </nav>
         </div>
@@ -195,9 +195,8 @@
                                 <img src="static/images/home_page1.jpg" alt="Environment Image 1">
                             </div>
                             <div class="text">
-                                <h2><i class="fas fa-leaf"></i> Title for Section 1</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non erat neque. Sed
-                                    pulvinar est quis magna interdum, nec suscipit est malesuada.</p>
+                                <h2><i class="fas fa-leaf"></i>ECO-BOT</h2>
+                                <p> An advanced environmental chatbot designed to assist users with waste management inquiries, providing real-time solutions and tips to promote a cleaner, greener planet.</p>
                             </div>
                         </div>
                     </div>
@@ -211,9 +210,53 @@
                                 <img src="static/images/home_page1.jpg" alt="Environment Image 2">
                             </div>
                             <div class="text">
-                                <h2><i class="fas fa-recycle"></i> Title for Section 2</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non erat neque. Sed
-                                    pulvinar est quis magna interdum, nec suscipit est malesuada.</p>
+                                <h2><i class="fas fa-recycle"></i>ECO-FEED</h2>
+                                <p>EcoFeed is a community-driven platform dedicated to sharing and discussing sustainable practices and environmental initiatives, fostering a collaborative effort to enhance eco-friendly living.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide">
+                    <div class="content-box">
+                        <div class="flex-container">
+                            <div class="image">
+                                <img src="static/images/home_page1.jpg" alt="Environment Image 2">
+                            </div>
+                            <div class="text">
+                                <h2><i class="fas fa-recycle"></i>TRASH TREASURE</h2>
+                                <p>innovative platform that encourages recycling and upcycling by allowing users to upload and share photos of discarded items and exchange them for rewards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide">
+                    <div class="content-box">
+                        <div class="flex-container">
+                            <div class="image">
+                                <img src="static/images/home_page1.jpg" alt="Environment Image 2">
+                            </div>
+                            <div class="text">
+                                <h2><i class="fas fa-recycle"></i>VOICE YOUR ISSUES</h2>
+                                <p>A platform that allows users to report environmental or civic issues directly to municipal corporations, helping prioritize
+                                    urgent concerns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="content-box">
+                        <div class="flex-container">
+                            <div class="image">
+                                <img src="static/images/home_page1.jpg" alt="Environment Image 2">
+                            </div>
+                            <div class="text">
+                                <h2><i class="fas fa-recycle"></i>VOLUNTEER HUB</h2>
+                                <p>A space for users to register or host environmental events like clean-ups and recycling drives</p>
                             </div>
                         </div>
                     </div>

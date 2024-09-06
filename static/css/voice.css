@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #388f61; /* Light green color that is soft but has some depth */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure the body covers the viewport height */
+}
+
+/* Header Styles */
+header {
+    background-color: #388f61;/* Dark green for contrast and consistency */
+    padding: 20px 0;
+    position: relative;
+    z-index: 1; /* Ensure header is above other content */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 155px; 
+    width: 200px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
+
+}
+
+nav ul li {
+    margin-left: 30px; 
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; 
+
+    font-size: 18px; 
+
+    font-weight: 600; 
+
+    font-family: 'Arial', sans-serif; 
+
+    position: relative;
+    padding-bottom: 8px; 
+
+    transition: color 0.3s ease, font-size 0.3s ease; 
+
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #a0db8e; 
+
+    transition: width 0.3s ease;
+    left: 0;
+    bottom: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #a0db8e; 
+
+    font-size: 20px; 
+
+}
+
+
+/* Title Section Styles */
+.title-section {
+    width: 100%;
+    
+    padding: 20px;
+    background: linear-gradient(to right, #004d26, #388f61); /* Green gradient */
+    text-align: center;
+    color: #ffffff; /* White text for contrast */
+    position: relative;
+    z-index: 1000; /* Ensure it stays above other content */
+    margin-top: 0px; /* Adjust based on header height */
+}
+
+.title-section h1 {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout for Form and Plots Container */
+.page-content {
+    display: flex;
+    justify-content: space-between; /* Adjusted to space-between */
+    align-items: flex-start;
+    padding: 40px;
+    margin-top: 120px; /* Space below the title section */
+}
+
+.page-content .form-container {
+    width: 60%; /* Adjust width as needed */
+    margin-right: 20px; /* Space between form and plots container */
+}
+
+.page-content .plots-container {
+    width: 35%; /* Adjust width as needed */
+}
+
+/* Form Container Styles */
+.form-container {
+    background-color: #ffffff; /* White background for form contrast */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Deeper shadow for more depth */
+    font-family: 'Poppins', sans-serif;
+}
+.logo img {
+    height: 180px; 
+    width: 200px;
+    padding: 0%;
+    margin: 0%;
+}
+/* Form Styles */
+form h2 {
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 20px;
+    color: #004d26; /* Darker green for form title */
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 12px; /* Slightly more padding */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Slightly lighter background */
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: #004d26; /* Darker green border on focus */
+    outline: none;
+}
+
+form textarea {
+    height: 120px; /* Increased height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #004d26; /* Dark green button color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #003d1b; /* Even darker green on hover */
+}
+
+/* Plots Container Styles */
+.plots-container {
+    background-color: #ffffff; /* White background for better contrast */
+    margin-top: 80px;
+    padding: 20px; /* Adds padding inside the container */
+    border: 1px solid #ddd; /* Light border around the container */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Deeper shadow for a 3D effect */
+    font-family: 'Poppins', sans-serif; /* Matches the rest of the site’s font */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.plots-container h2 {
+    font-size: 24px; /* Slightly larger font size */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #004d26; /* Darker green to match the theme */
+}
+
+.plots-container img {
+    width: 100%; /* Makes the image responsive to the container’s width */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 4px; /* Rounded corners for the images */
+    border: 1px solid #ddd; /* Border around the images for contrast */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .page-content {
+        flex-direction: column; /* Stack form and container vertically on small screens */
+    }
+
+    .page-content .form-container, .page-content .plots-container {
+        width: 100%; /* Full width on small screens */
+        margin: 0 0 20px 0; /* Margin adjustments */
+    }
+}

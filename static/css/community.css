@@ -28,7 +28,7 @@ header {
 
 /* Logo Styles */
 .logo img {
-    height: 150px; 
+    height: 155px; 
     width: 200px;
 }
 
@@ -230,7 +230,7 @@ nav ul li a:hover {
     width: 60%; /* Adjust width as needed */
     padding: 20px;
     position: fixed;
-    top: 295px; /* Ensure it is below the header, adjust as needed */
+    top: 320px; /* Ensure it is below the header, adjust as needed */
     right: 0;
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
     border-radius: 8px;
@@ -399,7 +399,12 @@ header {
     z-index: 1000; /* Ensure it stays above other content */
     margin-top: 0px; /* Adjust based on header height */
 }
-
+.logo img {
+    height: 180px; 
+    width: 200px;
+    padding: 0%;
+    margin: 0%;
+}
 .title-section h1 {
     font-size: 28px;
     font-family: 'Poppins', sans-serif;

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Hub Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/volunteer.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Show the registration modal
+            $('.register-btn').click(function() {
+                var eventName = $(this).data('event-name');
+                $('#event-name').text(eventName);
+                $('#registration-modal').show();
+            });
+
+            // Hide the registration modal
+            $('.close-btn').click(function() {
+                $('#registration-modal').hide();
+            });
+
+            // Handle form submission
+            $('#registration-form').submit(function(e) {
+                e.preventDefault();
+                $.post('/register_event', $(this).serialize(), function(data) {
+                    $('#registration-modal').hide();
+                    loadRegisteredEvents();
+                });
+            });
+
+            // Load registered events
+            function loadRegisteredEvents() {
+                $.get('/registered_events', function(data) {
+                    var eventsHtml = '';
+                    data.forEach(function(event) {
+                        eventsHtml += '<div class="registered-event">' +
+                                      '<h3>' + event.name + '</h3>' +
+                                      '<p>' + event.address + '</p>' +
+                                      '<p>' + event.phone + '</p>' +
+                                      '</div>';
+                    });
+                    $('#registered-events').html(eventsHtml);
+                });
+            }
+
+            // Initial load of registered events
+            loadRegisteredEvents();
+        });
+    </script>
+    <style>
+        /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000;
+    overflow: auto; /* Ensure modal content is visible if it's too tall */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    /* No additional positioning needed */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.modal-content button {
+    background-color: #2c6b57;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.modal-content button:hover {
+    background-color: #1b4f40;
+}
+
+.modal-content .close-btn {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+
+        /* Event Listing Styles */
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .event-box {
+            width: 100%;
+            max-width: 300px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .event-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .event-box h3 {
+            margin: 10px 0;
+            font-family: 'Lobster', cursive;
+        }
+
+        .event-box p {
+            margin: 10px 0;
+        }
+
+        .event-box button {
+            background-color: #388f61;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        .event-box button:hover {
+            background-color: #2e7d32;
+        }
+
+        .registered-events {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .registered-events h2 {
+            font-family: 'Lobster', cursive;
+        }
+
+        .registered-event {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .registered-event:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Image -->
+            <div class="logo">
+                <img src="static/images/logo00.jpg" alt="Logo">
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">HOME</a></li>
+                    <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
+                    <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
+                    <li><a href="{{ url_for('voice') }}">VOICE YOUR ISSUES</a></li>
+                    <li><a href="{{ url_for('volunteer') }}">VOLUNTEER HUB</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Title Section -->
+    <div class="title-section">
+        <h1>Your One-Stop Destination for Environmental EVENTS and DRIVES</h1>
+    </div>
+
+    <!-- Event Section -->
+    <div class="events-container">
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 1">
+            <h3>Beach Cleanup</h3>
+            <p>Join us for a day of cleaning up our local beaches. It's a great way to give back to the community and enjoy the outdoors.</p>
+            <p><strong>Location:</strong> Sandy Beach</p>
+            <button class="register-btn" data-event-name="Beach Cleanup">Register</button>
+            <button>Not Interested</button>
+        </div>
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 2">
+            <h3>Tree Planting Drive</h3>
+            <p>Help us plant trees in our local park to improve air quality and enhance green spaces in our city.</p>
+            <p><strong>Location:</strong> Green Park</p>
+            <button class="register-btn" data-event-name="Tree Planting Drive">Register</button>
+            <button>Not Interested</button>
+        </div>
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 3">
+            <h3>Recycling Workshop</h3>
+            <p>Learn about recycling and waste management in this informative workshop. Suitable for all ages.</p>
+            <p><strong>Location:</strong> Community Center</p>
+            <button class="register-btn" data-event-name="Recycling Workshop">Register</button>
+            <button>Not Interested</button>
+        </div>
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 2">
+            <h3>Tree Planting Drive</h3>
+            <p>Help us plant trees in our local park to improve air quality and enhance green spaces in our city.</p>
+            <p><strong>Location:</strong> Green Park</p>
+            <button class="register-btn" data-event-name="Tree Planting Drive">Register</button>
+            <button>Not Interested</button>
+        </div>
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 4">
+            <h3>Urban Gardening</h3>
+            <p>Discover the benefits of urban gardening and get hands-on experience in growing your own plants.</p>
+            <p><strong>Location:</strong> City Garden</p>
+            <button class="register-btn" data-event-name="Urban Gardening">Register</button>
+            <button>Not Interested</button>
+        </div>
+
+        <div class="event-box">
+            <img src="static/images/event.jpg" alt="Event 2">
+            <h3>Tree Planting Drive</h3>
+            <p>Help us plant trees in our local park to improve air quality and enhance green spaces in our city.</p>
+            <p><strong>Location:</strong> Green Park</p>
+            <button class="register-btn" data-event-name="Tree Planting Drive">Register</button>
+            <button>Not Interested</button>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="modal">
+        <div class="modal-content">
+            <h2>Register for <span id="event-name"></span></h2>
+            <form id="registration-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="phone" placeholder="Your Phone Number" required>
+                <button type="submit">Register</button>
+                <button type="button" class="close-btn">Close</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

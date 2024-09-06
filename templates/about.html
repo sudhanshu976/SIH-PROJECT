@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Image -->
+            <div class="logo">
+                <img src="static/images/logo00.jpg" alt="Logo">
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">HOME</a></li>
+                    <li><a href="{{ url_for('community') }}">ECO-FEED</a></li>
+                    <li><a href="{{ url_for('trash_treasure') }}">TRASH TREASURE</a></li>
+                    <li><a href="{{ url_for('voice') }}">VOICE YOUR ISSUES</a></li>
+                    <li><a href="{{ url_for('volunteer') }}">VOLUNTEER HUB</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Title Section -->
+<div class="title-section">
+    <h1>OUR TEAM</h1>
+</div>
+
+<div class="team-section">
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/ashwin.jpg" alt="Member 1">
+        </div>
+        <h3>Ashwin Sharma</h3>
+        <p>Front-End Developer</p>
+    </div>
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/asmit.jpg" alt="Member 2">
+        </div>
+        <h3>Asmit Rawat</h3>
+        <p>Front-End Developer</p>
+    </div>
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/jayant.jpg" alt="Member 3">
+        </div>
+        <h3>Jayant Yadav</h3>
+        <p>Front-End Developer</p>
+    </div>
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/sakshi.jpg" alt="Member 4">
+        </div>
+        <h3>Sakshi Mishra</h3>
+        <p>Front-End / Web Designer</p>
+    </div>
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/sudhanshu.jpg" alt="Member 5">
+        </div>
+        <h3>Sudhanshu</h3>
+        <p>AIML / Backend Developer</p>
+    </div>
+    <div class="team-member">
+        <div class="member-photo">
+            <img src="static/images/aman.jpg" alt="Member 6">
+        </div>
+        <h3>Aman Singh</h3>
+        <p>Team Leader / Communication Lead</p>
+    </div>
+</div>
+
+</body>
+</html>

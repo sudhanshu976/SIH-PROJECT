@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #388f61; /* Light green color that is soft but has some depth */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure the body covers the viewport height */
+}
+
+/* Header Styles */
+header {
+    background-color: #388f61;/* Dark green for contrast and consistency */
+    padding: 20px 0;
+    position: relative;
+    z-index: 1; /* Ensure header is above other content */
+}
+.logo img {
+    height: 180px; 
+    width: 200px;
+    padding: 0%;
+    margin: 0%;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 155px; 
+    width: 200px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
+
+}
+
+nav ul li {
+    margin-left: 30px; 
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; 
+
+    font-size: 18px; 
+
+    font-weight: 600; 
+
+    font-family: 'Arial', sans-serif; 
+
+    position: relative;
+    padding-bottom: 8px; 
+
+    transition: color 0.3s ease, font-size 0.3s ease; 
+
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #a0db8e; 
+
+    transition: width 0.3s ease;
+    left: 0;
+    bottom: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #a0db8e; 
+
+    font-size: 20px; 
+
+}
+/* Title Section Styles */
+.title-section {
+    width: 100%;
+    
+    padding: 20px;
+    background: linear-gradient(to right, #004d26, #388f61); /* Green gradient */
+    text-align: center;
+    color: #ffffff; /* White text for contrast */
+    position: relative;
+    z-index: 1000; /* Ensure it stays above other content */
+    margin-top: 0px; /* Adjust based on header height */
+}
+
+.title-section h1 {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
